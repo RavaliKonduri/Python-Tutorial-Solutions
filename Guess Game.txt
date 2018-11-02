@@ -1,0 +1,27 @@
+import random
+rand = random.randint(0,100)
+print("Welcome to guess game!")
+guesses = [0]
+while True:
+    guess = int(input("Guess a number:"))
+    
+    if guess < 1 or guess > 100:
+        print("Out of bounds!!")
+        continue
+    
+    if guess == rand:
+        print(f'you have guessed right!! in {len(guesses)} chances')
+        break
+    
+    guesses.append(guess)
+    
+    if guesses[-2]:
+        if abs(guess - rand)<abs(guesses[-2]-rand):
+            print("Warmer")
+        else:
+              print("cloder")
+    else:
+        if abs(guess-rand)<=10:
+            print("warm")
+        else:
+            print("cold")
